@@ -1,0 +1,20 @@
+{% extends 'choices/base.html' %}
+{% block title %}
+LIST
+{% endblock %}
+{% block body %}
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+    당신의 ~~~~~ 선택은 ~~~~~~~?
+  </a>
+  <a href="{% url 'choices:new' %}">[선택지 추가]</a>
+  <hr>
+  {% for question in questions %}
+  <div class="text-center">
+  <a href="{% url 'choices:vote' question.pk %}" class="list-group-item list-group-item-action"><b>{{ question.title }}</b></a>
+  </div>
+  <a href="{% url 'choices:question_delete' question.pk %}">[삭제]</a>
+{% endfor %}
+</div>
+{% endblock %}

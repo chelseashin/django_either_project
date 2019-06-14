@@ -1,0 +1,15 @@
+{% extends 'choices/base.html' %}
+{% block title %}
+NEW
+{% endblock %}
+{% block body %}
+
+<form action="{% url 'choices:index' %}" method="POST">
+    {% csrf_token %}
+    TITLE : <input type="text" name="title"/>
+    선택지1 : <input type="text" name="selection1"/>
+    선택지2 : <input type="text" name="selection2"/>
+    <input type="submit" value="Submit"/>
+</form>
+
+{% endblock %}
